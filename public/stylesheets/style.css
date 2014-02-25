@@ -13,6 +13,15 @@ p {
   margin: 0;
 }
 
+hr {
+  margin: 0;
+  border: 1px #778899 solid;
+}
+
+select {
+  width: auto;
+}
+
 .link {
   text-decoration: underline;
   cursor: pointer;
@@ -33,17 +42,18 @@ p {
 
 .box {
   padding: 5px;
+  margin-top: 20px;
   margin-bottom: 20px;
   border-width: 0 0 0 3px;
   border-style: solid;
 }
 
-.box-color-gafieira {
+.box-category-gafieira {
   background: #B3D9BA;
   border-color: #40A352;
 }
 
-.box-color-tango {
+.box-category-tango {
   background: #FFE4E1;
   border-color: #DA70D6;
 }
@@ -60,4 +70,13 @@ p {
   position: absolute;
   top: 0;
   right: 10px;
+}
+
+.upload-btn {
+  float: right;
+  margin-bottom: 10px;
+}
+
+.search-category {
+  clear: both;
 }

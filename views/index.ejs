@@ -19,26 +19,38 @@
   </head>
 
   <body>
-    <ul>
-    <% lessons.forEach(function(lesson){ %>
-    <div class="box box-color-<%= categories[lesson.category].shortName %>">
-      <div class="item-content">
-        <div class="left-item"><%= lesson.date %></div>
-        <!--div class="right-item">(by <%= lesson.uploader %> ) </div-->
-      </div>
-      <div class="margin-left"><i class="icon-user"></i> <%= lesson.teacher %></div>
-      <div class="margin-left"><i class="icon-music"></i> <%= categories[lesson.category].name %></div>
-      <% if(lesson.description){ %>
-        <div class="margin-left"><i class="icon-tag"></i> <%= lesson.description %></div>
-      <% } %>
-      <div class="margin-left" onClick="toggleMovie(this)">
-        <div class="show-movie link"><i class="icon-film"></i><i class="icon-hand-right"></i> Show the movie<i class="icon-chevron-down"></i></div>
-        <div class="hide-movie link" style="display:none;"><i class="icon-film"></i><i class="icon-hand-right"></i> Hide the movie<i class="icon-chevron-up"></i></div>
-        <iframe src="" data-src="<%= lesson.youtube %>" allowfullscreen style="display:none;border:none;"></iframe>
+    <div id="header" class="item-content">
+      <div class="upload-btn btn btn-info">Upload</div>
+      <div class="search-category">
+        Select Category:&nbsp;
+        <select onChange="selectCategory(this)">
+          <option value="">ALL</option>
+          <option value="<%= categories[0].shortName %>"><%= categories[0].name %></option>
+          <option value="<%= categories[1].shortName %>"><%= categories[1].name %></option>
+        </select>
       </div>
     </div>
-    <% }) %>
-    </ul>
+    <hr />
+    <div id="lessons">
+      <% lessons.forEach(function(lesson){ %>
+      <div class="box box-category-<%= categories[lesson.category].shortName %>">
+        <div class="item-content">
+          <div class="left-item"><%= lesson.date %></div>
+          <!--div class="right-item">(by <%= lesson.uploader %> ) </div-->
+        </div>
+        <div class="margin-left"><i class="icon-user"></i> <%= lesson.teacher %></div>
+        <div class="margin-left"><i class="icon-music"></i> <%= categories[lesson.category].name %></div>
+        <% if(lesson.description){ %>
+        <div class="margin-left"><i class="icon-tag"></i> <%= lesson.description %></div>
+        <% } %>
+        <div class="margin-left" onClick="toggleMovie(this)">
+          <div class="show-movie link"><i class="icon-film"></i><i class="icon-hand-right"></i> Show the movie<i class="icon-chevron-down"></i></div>
+          <div class="hide-movie link" style="display:none;"><i class="icon-film"></i><i class="icon-hand-right"></i> Hide the movie<i class="icon-chevron-up"></i></div>
+          <iframe src="" data-src="<%= lesson.youtube %>" allowfullscreen style="display:none;border:none;"></iframe>
+        </div>
+      </div>
+      <% }) %>
+    </div>
     <div id="footer" class="right">Copyright. Cassy</div>
   </body>
 </html>
