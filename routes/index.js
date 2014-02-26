@@ -25,3 +25,11 @@ exports.index = function(req, res){
     }
   );
 };
+
+exports.upload = function(req, res) {
+  mongodb.find('genre').done(
+    function(genres) {
+      res.render('upload', {genres: genres});
+    }
+  );
+}

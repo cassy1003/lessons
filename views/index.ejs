@@ -3,8 +3,8 @@
   <% include head.ejs %>
   <body>
     <div id="header" class="item-content">
-      <div class="upload-btn btn btn-info">Upload</div>
-      <div class="search-genre">
+      <a href="/upload"><div class="float-right btn btn-info">Upload<i class="icon-chevron-right icon-white"></i></div></a>
+      <div class="float-clear">
         Select by Genre:&nbsp;
         <select onChange="selectGenre(this)">
           <option value="">ALL</option>
@@ -14,14 +14,14 @@
       </div>
     </div>
     <hr />
-    <div id="lessons">
+    <div id="lessons" class="unit">
       <% lessons.forEach(function(lesson){ %>
       <div class="box box-genre-<%= genres[lesson.genre].shortName %>">
         <div class="item-content">
           <div class="left-item"><%= lesson.date %></div>
           <!--div class="right-item">(by <%= lesson.uploader %> ) </div-->
         </div>
-        <div class="margin-left"><i class="icon-user"></i> <%= lesson.teacher %></div>
+        <div class="margin-left"><i class="icon-user"></i> <%= lesson.instructor %></div>
         <div class="margin-left"><i class="icon-music"></i> <%= genres[lesson.genre].name %></div>
         <% if(lesson.description){ %>
         <div class="margin-left"><i class="icon-tag"></i> <%= lesson.description %></div>

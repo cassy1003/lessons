@@ -2,7 +2,7 @@
 var collections = {
   lesson: {
     genre: Number,
-    teacher: String,
+    instructor: String,
     uploader: String,
     youtube: String,
     description: String,

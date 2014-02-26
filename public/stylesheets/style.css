@@ -40,6 +40,19 @@ select {
   margin-left: 10px;
 }
 
+.control-label {
+  width: auto !important;
+}
+
+.controls {
+  margin-left: 70px !important;
+}
+
+.unit {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .box {
   padding: 5px;
   margin-top: 20px;
@@ -72,11 +85,16 @@ select {
   right: 10px;
 }
 
-.upload-btn {
+.float-right {
   float: right;
   margin-bottom: 10px;
 }
 
-.search-genre {
+.float-left {
+  float: left;
+  margin-bottom: 10px;
+}
+
+.float-clear {
   clear: both;
 }

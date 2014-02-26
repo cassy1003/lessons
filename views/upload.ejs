@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/xhtml" xml:lang="ja" lang="ja">
+  <% include head.ejs %>
+  <body>
+    <div id="header" class="item-content">
+      <a href="/"><div class="float-left btn btn-info"><i class="icon-chevron-left icon-white"></i>List</div></a>
+      <div class="float-clear">工事中</div>
+    </div>
+    <hr />
+    <div id="upload" class="unit">
+      <form id="upload-form" class="form-horizontal">
+        <div class="control-group">
+          <label class="control-label" for="selectGenre">Genre: </label>
+          <div class="controls">
+            <select onChange="selectUploadGenre">
+              <option value="">ALL</option>
+              <option value="<%= genres[0].shortName %>"><%= genres[0].name %></option>
+              <option value="<%= genres[1].shortName %>"><%= genres[1].name %></option>
+            </select>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="selectInstructor">Instructor: </label>
+          <div class="controls">
+            <select onChange="selectUploadInstructor">
+              <option value="">ALL</option>
+              <option value=""></option>
+              <option value="<%= genres[0].shortName %>"><%= genres[0].name %></option>
+              <option value="<%= genres[1].shortName %>"><%= genres[1].name %></option>
+            </select>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="inputYoutube">Youtube: </label>
+          <div class="controls">
+            <input type="text" placeholder="youtube" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
