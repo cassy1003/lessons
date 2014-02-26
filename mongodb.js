@@ -54,18 +54,25 @@ exports.find = function(col, query, field, option) {
 
 exports.save = function(col, params) {
   var db, k;
-  if (_DB[col] != null) {
-    db = new _DB[col];
-    for (k in params) {
-      db[k] = params[k];
-    }
-    return db.save(function(err) {
-      if (err) {
-        return console.log(err);
+  return $.Deferred(function(d) {
+    if (_DB[col] != null) {
+      db = new _DB[col];
+      for (k in params) {
+        db[k] = params[k];
       }
-    });
-  }
-};
+      db.save(function(err) {
+        if (err) {
+          console.log(err);
+          return d.reject();
+        } else {
+          return d.resolve();
+        }
+      });
+    } else {
+      return d.reject();
+    }
+  });
+}
 
 exports.remove = function(col, query) {
   if (_DB[col] != null) {

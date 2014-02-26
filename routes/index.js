@@ -3,7 +3,8 @@
  * GET home page.
  */
 
-var $ = require('jquery-deferred');
+var $ = require('jquery-deferred'),
+    mongodb = require('../mongodb');
 
 exports.index = function(req, res){
   $.when(mongodb.find('lesson'), mongodb.find('genre'), mongodb.find('instructor')).done(

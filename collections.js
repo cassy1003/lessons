@@ -7,8 +7,8 @@ var collections = {
     youtube: String,
     description: String,
     date: String,
-    c_date: Date,
-    m_date: Date,
+    c_date: String,
+    m_date: String,
     password: String
   },
   genre: {
