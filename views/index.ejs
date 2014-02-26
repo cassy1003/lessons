@@ -1,28 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/xhtml" xml:lang="ja" lang="ja">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <meta http-equiv="Content-Script-Type" content="text/javascript" />
-    <title>Lessons Movie</title>
-    <meta name="copyright" content="cassy" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-
-    <script type="text/javascript" src="/javascripts/jquery.js"></script>
-    <script type="text/javascript" src="/javascripts/scripts.js"></script>
-    <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
-  </head>
-
+  <% include head.ejs %>
   <body>
     <div id="header" class="item-content">
       <div class="upload-btn btn btn-info">Upload</div>
       <div class="search-category">
-        Select Category:&nbsp;
+        Select by Genre:&nbsp;
         <select onChange="selectCategory(this)">
           <option value="">ALL</option>
           <option value="<%= categories[0].shortName %>"><%= categories[0].name %></option>
@@ -44,13 +27,13 @@
         <div class="margin-left"><i class="icon-tag"></i> <%= lesson.description %></div>
         <% } %>
         <div class="margin-left" onClick="toggleMovie(this)">
-          <div class="show-movie link"><i class="icon-film"></i><i class="icon-hand-right"></i> Show the movie<i class="icon-chevron-down"></i></div>
-          <div class="hide-movie link" style="display:none;"><i class="icon-film"></i><i class="icon-hand-right"></i> Hide the movie<i class="icon-chevron-up"></i></div>
+          <div class="show-movie link"><i class="icon-film"></i><i class="icon-hand-right"></i> Show video<!--i class="icon-chevron-down"></i--></div>
+          <div class="hide-movie link" style="display:none;"><i class="icon-film"></i><i class="icon-hand-right"></i> Hide video<!--i class="icon-chevron-up"></i--></div>
           <iframe src="" data-src="<%= lesson.youtube %>" allowfullscreen style="display:none;border:none;"></iframe>
         </div>
       </div>
       <% }) %>
     </div>
-    <div id="footer" class="right">Copyright. Cassy</div>
+    <% include foot.ejs %>
   </body>
 </html>
