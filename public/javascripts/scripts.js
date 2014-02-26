@@ -16,8 +16,8 @@ function toggleMovie(dom){
   $('.show-movie', dom).toggle();
 }
 
-function selectCategory(dom) {
+function selectGenre(dom) {
   var val = $('option:selected', dom).val();
-  var select = val ? '.box-category-' + val : '.box';
+  var select = val ? '.box-genre-' + val : '.box';
   $('.box').show().not(select).hide();
 }

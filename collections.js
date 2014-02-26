@@ -1,7 +1,7 @@
 
 var collections = {
   lesson: {
-    category: Number,
+    genre: Number,
     teacher: String,
     uploader: String,
     youtube: String,
@@ -11,7 +11,7 @@ var collections = {
     m_date: Date,
     password: String
   },
-  category: {
+  genre: {
     id: Number,
     name: String,
     shortName: String

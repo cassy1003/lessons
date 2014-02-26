@@ -4,25 +4,25 @@
   <body>
     <div id="header" class="item-content">
       <div class="upload-btn btn btn-info">Upload</div>
-      <div class="search-category">
+      <div class="search-genre">
         Select by Genre:&nbsp;
-        <select onChange="selectCategory(this)">
+        <select onChange="selectGenre(this)">
           <option value="">ALL</option>
-          <option value="<%= categories[0].shortName %>"><%= categories[0].name %></option>
-          <option value="<%= categories[1].shortName %>"><%= categories[1].name %></option>
+          <option value="<%= genres[0].shortName %>"><%= genres[0].name %></option>
+          <option value="<%= genres[1].shortName %>"><%= genres[1].name %></option>
         </select>
       </div>
     </div>
     <hr />
     <div id="lessons">
       <% lessons.forEach(function(lesson){ %>
-      <div class="box box-category-<%= categories[lesson.category].shortName %>">
+      <div class="box box-genre-<%= genres[lesson.genre].shortName %>">
         <div class="item-content">
           <div class="left-item"><%= lesson.date %></div>
           <!--div class="right-item">(by <%= lesson.uploader %> ) </div-->
         </div>
         <div class="margin-left"><i class="icon-user"></i> <%= lesson.teacher %></div>
-        <div class="margin-left"><i class="icon-music"></i> <%= categories[lesson.category].name %></div>
+        <div class="margin-left"><i class="icon-music"></i> <%= genres[lesson.genre].name %></div>
         <% if(lesson.description){ %>
         <div class="margin-left"><i class="icon-tag"></i> <%= lesson.description %></div>
         <% } %>

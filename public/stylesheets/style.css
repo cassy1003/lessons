@@ -48,12 +48,12 @@ select {
   border-style: solid;
 }
 
-.box-category-gafieira {
+.box-genre-gafieira {
   background: #B3D9BA;
   border-color: #40A352;
 }
 
-.box-category-tango {
+.box-genre-tango {
   background: #FFE4E1;
   border-color: #DA70D6;
 }
@@ -77,6 +77,6 @@ select {
   margin-bottom: 10px;
 }
 
-.search-category {
+.search-genre {
   clear: both;
 }

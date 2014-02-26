@@ -36,4 +36,4 @@ http.createServer(app).listen(app.get('port'), function(){
 mongodb = require('./mongodb');
 mongodb.connectMongoDB('dance');
 mongodb.connect('lesson');
-mongodb.connect('category');
+mongodb.connect('genre');
