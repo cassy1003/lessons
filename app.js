@@ -5,7 +5,6 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
 
@@ -38,3 +37,4 @@ mongodb = require('./mongodb');
 mongodb.connectMongoDB('dance');
 mongodb.connect('lesson');
 mongodb.connect('genre');
+mongodb.connect('instructor');

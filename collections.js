@@ -15,6 +15,12 @@ var collections = {
     id: Number,
     name: String,
     shortName: String
+  },
+  instructor: {
+    id: Number,
+    key: String,
+    name: String,
+    genre: Number
   }
 };
 

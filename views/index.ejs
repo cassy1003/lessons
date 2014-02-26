@@ -21,7 +21,7 @@
           <div class="left-item"><%= lesson.date %></div>
           <!--div class="right-item">(by <%= lesson.uploader %> ) </div-->
         </div>
-        <div class="margin-left"><i class="icon-user"></i> <%= lesson.instructor %></div>
+        <div class="margin-left"><i class="icon-user"></i> <%= instructors[lesson.instructor].name %></div>
         <div class="margin-left"><i class="icon-music"></i> <%= genres[lesson.genre].name %></div>
         <% if(lesson.description){ %>
         <div class="margin-left"><i class="icon-tag"></i> <%= lesson.description %></div>
