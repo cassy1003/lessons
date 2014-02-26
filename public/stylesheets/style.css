@@ -18,13 +18,13 @@ hr {
   border: 1px #778899 solid;
 }
 
-select {
-  width: auto;
-}
-
 .link {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.red {
+  color: red !important;
 }
 
 .hide {
@@ -38,14 +38,6 @@ select {
 
 .margin-left {
   margin-left: 10px;
-}
-
-.control-label {
-  width: auto !important;
-}
-
-.controls {
-  margin-left: 70px !important;
 }
 
 .unit {
@@ -98,3 +90,16 @@ select {
 .float-clear {
   clear: both;
 }
+
+#upload-form .field-group *:nth-child(2) {
+  margin-left: 20px;
+}
+
+#upload-form .field-group select {
+  width: 90%;
+}
+
+#upload-form .field-group input {
+  width: 85%;
+}
+

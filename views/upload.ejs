@@ -8,34 +8,49 @@
     </div>
     <hr />
     <div id="upload" class="unit">
-      <form id="upload-form" class="form-horizontal">
-        <div class="control-group">
-          <label class="control-label" for="selectGenre">Genre: </label>
-          <div class="controls">
-            <select onChange="selectUploadGenre">
-              <option value="">ALL</option>
-              <option value="<%= genres[0].shortName %>"><%= genres[0].name %></option>
-              <option value="<%= genres[1].shortName %>"><%= genres[1].name %></option>
+      <form id="upload-form" method="post" action="/upload">
+        <fieldset>
+          <div class="field-group">
+            <label class="control-label" for="inputDate">Date: <span class="red">*</span></label>
+            <input type="text" name="date" placeholder="yyyy/mm/dd" />
+          </div>
+          <div class="field-group">
+            <label class="control-label" for="selectGenre">Genre: <span class="red">*</span></label>
+            <select onChange="selectUploadGenre" name="genre">
+              <% genres.forEach(function(genre){ %>
+              <option value="<%= genre.id %>"><%= genre.name %></option>
+              <% }) %>
             </select>
           </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label" for="selectInstructor">Instructor: </label>
-          <div class="controls">
-            <select onChange="selectUploadInstructor">
-              <option value="">ALL</option>
-              <option value=""></option>
-              <option value="<%= genres[0].shortName %>"><%= genres[0].name %></option>
-              <option value="<%= genres[1].shortName %>"><%= genres[1].name %></option>
+          <div class="field-group">
+            <label class="control-label" for="selectInstructor">Instructor: <span class="red">*</span></label>
+            <select onChange="selectUploadInstructor" name="instructor">
+              <% instructors.forEach(function(instructor){ %>
+              <option value="<%= instructor.id %>"><%= instructor.name %></option>
+              <% }) %>
             </select>
           </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label" for="inputYoutube">Youtube: </label>
-          <div class="controls">
-            <input type="text" placeholder="youtube" />
+          <div class="field-group">
+            <label class="control-label" for="inputYoutube">Youtube: <span class="red">*</span></label>
+            <input type="text" name="url" placeholder="youtube url" />
+            <input type="hidden" name="youtube" />
           </div>
-        </div>
+          <div class="field-group">
+            <label class="control-label" for="inputDescription">Description:</label>
+            <input type="text" name="description" placeholder="description" />
+          </div>
+          <div class="field-group">
+            <label class="control-label" for="inputUploader">Your Name:</label>
+            <input type="text" name="uploader" placeholder="name or nickname" />
+          </div>
+          <div class="field-group">
+            <label class="control-label" for="inputPassword">Edit Password:</label>
+            <input type="text" name="password" placeholder="password for edit" />
+          </div>
+          <div class="unit">
+            <input class="btn btn-primary btn-block" type="submit" value="upload">
+          </div>
+        </fieldset>
       </form>
     </div>
   </body>

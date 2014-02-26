@@ -28,9 +28,12 @@ exports.index = function(req, res){
 };
 
 exports.upload = function(req, res) {
-  mongodb.find('genre').done(
-    function(genres) {
-      res.render('upload', {genres: genres});
+  $.when(mongodb.find('genre'), mongodb.find('instructor')).done(
+    function(genres, instructors) {
+      res.render('upload', {
+        genres: genres,
+        instructors: instructors
+      });
     }
   );
 }
