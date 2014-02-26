@@ -53,7 +53,7 @@ exports.find = function(col, query, field, option) {
 };
 
 exports.save = function(col, params) {
-  var db, k, v;
+  var db, k;
   if (_DB[col] != null) {
     db = new _DB[col];
     for (k in params) {
@@ -66,6 +66,17 @@ exports.save = function(col, params) {
     });
   }
 };
+
+exports.remove = function(col, query) {
+  if (_DB[col] != null) {
+    var db = new _DB[col];
+    return db.remove(query, function(err) {
+      if (err) {
+        return console.log(err);
+      }
+    });
+  }
+}
 
 exports.update = function(col, params) {
   if (_DB[col] != null) {
