@@ -32,8 +32,12 @@ exports.upload = function(req, res) {
   $.when(mongodb.find('genre'), mongodb.find('instructor')).done(
     function(genres, instructors) {
       res.render('upload', {
-        genres: genres,
-        instructors: instructors
+        genres: genres.sort(function(a, b){
+          return a.id - b.id;
+        }),
+        instructors: instructors.sort(function(a, b){
+          return a.id - b.id;
+        })
       });
     }
   );
