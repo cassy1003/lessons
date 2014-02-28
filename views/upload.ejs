@@ -32,8 +32,9 @@
           </div>
           <div class="field-group">
             <label class="control-label" for="inputYoutube">YouTube URL: <span class="red">*</span></label>
-            <input type="text" name="url" placeholder="YouTube URL" required />
-            <input type="hidden" name="youtube" />
+            <input id="youtube-input" type="text" name="url" placeholder="YouTube URL or video id (v=***********)" required />
+            <iframe id="youtube-iframe" src="" style="display:none;" allowfullscreen></iframe>
+            <input id="hidden-youtube-data" type="hidden" name="youtube" />
           </div>
           <div class="field-group">
             <label class="control-label" for="inputDescription">Description:</label>
@@ -43,10 +44,10 @@
             <label class="control-label" for="inputUploader">Name:</label>
             <input type="text" name="uploader" placeholder="name or nickname" />
           </div>
-          <div class="field-group">
+          <!--div class="field-group">
             <label class="control-label" for="inputPassword">Password:</label>
             <input type="text" name="password" placeholder="password for edit" />
-          </div>
+          </div-->
           <div class="unit">
             <input class="btn btn-primary btn-block" type="submit" value="upload">
           </div>
@@ -54,5 +55,8 @@
       </form>
     </div>
     <% include foot.ejs %>
+    <script>
+      $('#youtube-input').bind('keyup textchange paste', inputYouTubeUrl);
+    </script>
   </body>
 </html>

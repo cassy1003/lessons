@@ -18,6 +18,11 @@ hr {
   border: 1px #778899 solid;
 }
 
+iframe {
+  border: none;
+  margin-bottom: 10px;
+}
+
 .link {
   text-decoration: underline;
   cursor: pointer;
@@ -91,7 +96,7 @@ hr {
   clear: both;
 }
 
-#upload-form .field-group *:nth-child(2) {
+#upload-form .field-group *:nth-child(n+2) {
   margin-left: 20px;
 }
 

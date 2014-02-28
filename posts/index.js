@@ -7,13 +7,13 @@ exports.upload = function(req, res) {
   mongodb.save('lesson', {
     genre: data.genre,
     instructor: data.instructor,
-    uploader: data.uploader,
+    uploader: data.uploader || '',
     youtube: data.youtube,
-    description: data.description,
+    description: data.description || '',
     date: data.date,
     c_date: Date.now(),
     m_date: Date.now(),
-    password: data.password
+    password: data.password || ''
   }).done(function(r) {
     res.redirect('/');
   });
