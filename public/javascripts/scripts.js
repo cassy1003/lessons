@@ -63,17 +63,33 @@ function createYouTubeIframe() {
 }
 
 function submitUploadForm(dom) {
-    var data = {};
-    $('[name]', $(dom)).each(function(){
-        data[$(this).attr('name')] = $(this).val();
-    });
-    if (!data.date.match(/\d{4}\/\d{2}\/\d{2}/)) {
-      alert('Please check the date format.');
-      return false;
-    }
-    if (!data.youtube) {
-      alert('Please check YouTube URL or vide id.');
-      return false;
-    }
-    return true;
+  var data = {};
+  $('[name]', $(dom)).each(function(){
+      data[$(this).attr('name')] = $(this).val();
+  });
+  return checkData(data);
+}
+
+function submitEditForm(dom) {
+  var data = {};
+  $('[name]', $(dom)).each(function(){
+      data[$(this).attr('name')] = $(this).val();
+  });
+  return checkData(data);
+}
+
+function checkData(data) {
+  if (!data.date.match(/\d{4}\/\d{2}\/\d{2}/)) {
+    alert('Please check the date format.');
+    return false;
+  }
+  if (!data.youtube) {
+    alert('Please check YouTube URL or vide id.');
+    return false;
+  }
+  return true;
+}
+
+function linkEdit(dom) {
+  location.href = '/edit?id=' + $(dom).attr('data-id');
 }

@@ -30,9 +30,13 @@ if ('development' == app.get('env')) {
 // GET
 app.get('/', routes.index);
 app.get('/upload', routes.upload);
+app.get('/sekiya', routes.sekiya);
+app.get('/upload/sekiya', routes.uploadSekiya);
+app.get('/edit', routes.edit);
 
 // POST
 app.post('/uploadData', posts.upload);
+app.post('/editData', posts.edit);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

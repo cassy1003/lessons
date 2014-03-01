@@ -3,7 +3,7 @@
   <% include head.ejs %>
   <body>
     <div id="header" class="item-content">
-      <a href="/upload"><div class="float-right btn btn-info">Upload<i class="icon-chevron-right icon-white"></i></div></a>
+      <a href="<%= uploadUrl %>"><div class="float-right btn btn-info">Upload<i class="icon-chevron-right icon-white"></i></div></a>
       <div class="float-clear">
         Select by Genre:&nbsp;
         <select onChange="selectGenre(this)">
@@ -20,6 +20,9 @@
       <div class="box box-genre-<%= genres[lesson.genre].shortName %>">
         <div class="item-content">
           <div class="left-item"><%= lesson.date %></div>
+          <div class="right-item link" onClick="linkEdit(this)" data-id="<%= lesson.id %>">
+            <i class="icon-pencil"></i>
+          </div>
           <!--div class="right-item">(by <%= lesson.uploader %> ) </div-->
         </div>
         <div class="margin-left"><i class="icon-user"></i> <%= instructors[lesson.instructor].name %></div>
