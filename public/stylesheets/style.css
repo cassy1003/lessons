@@ -68,6 +68,11 @@ iframe {
   border-color: #DA70D6;
 }
 
+.box-genre-salsa {
+  background: #B0C4DE;
+  border-color: #4169E1;
+}
+
 .item-content {
   position: relative;
 }

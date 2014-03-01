@@ -33,7 +33,7 @@ function setInstructorSelector() {
   var val = $('#genreSelector option:selected').val();
   $('#instructorSelector select').html(
     $('.instructor-data[genre=' + val +']').map(function(){
-      return '<option value="' + $(this).attr('instructor_id') + '" name="instructor">' + $(this).attr('name') + '</option>';
+      return '<option value="' + $(this).attr('instructor_id') + '">' + $(this).attr('instructor') + '</option>';
     }).get().join('') || '<option>---</option>'
   ).removeAttr('disabled');
 }
@@ -60,4 +60,20 @@ function createYouTubeIframe() {
     setMovieSize($iframe.attr('src', src).show());
     $('#hidden-youtube-data').val(src);
   }
+}
+
+function submitUploadForm(dom) {
+    var data = {};
+    $('[name]', $(dom)).each(function(){
+        data[$(this).attr('name')] = $(this).val();
+    });
+    if (!data.date.match(/\d{4}\/\d{2}\/\d{2}/)) {
+      alert('Please check the date format.');
+      return false;
+    }
+    if (!data.youtube) {
+      alert('Please check YouTube URL or vide id.');
+      return false;
+    }
+    return true;
 }

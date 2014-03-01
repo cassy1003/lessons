@@ -8,8 +8,9 @@
         Select by Genre:&nbsp;
         <select onChange="selectGenre(this)">
           <option value="">ALL</option>
-          <option value="<%= genres[0].shortName %>"><%= genres[0].name %></option>
-          <option value="<%= genres[1].shortName %>"><%= genres[1].name %></option>
+          <% genres.forEach(function(genre){ %>
+          <option value="<%= genre.shortName %>"><%= genre.name %></option>
+          <% }) %>
         </select>
       </div>
     </div>

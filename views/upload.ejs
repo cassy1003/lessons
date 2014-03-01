@@ -8,7 +8,7 @@
     </div>
     <hr />
     <div id="upload" class="unit">
-      <form id="upload-form" method="post" action="/uploadData">
+      <form id="upload-form" method="post" action="/uploadData" onSubmit="return submitUploadForm(this)">
         <fieldset>
           <div class="field-group">
             <label class="control-label" for="inputDate">Date: <span class="red">*</span></label>
@@ -27,7 +27,7 @@
             <select onChange="selectUploadInstructor" name="instructor" required >
             </select>
             <% instructors.forEach(function(instructor){ %>
-            <div class="hide instructor-data" name="<%= instructor.name %>" genre="<%= instructor.genre %>" instructor_id="<%= instructor.id %>"></div>
+            <div class="hide instructor-data" instructor="<%= instructor.name %>" genre="<%= instructor.genre %>" instructor_id="<%= instructor.id %>"></div>
             <% }) %>
           </div>
           <div class="field-group">
