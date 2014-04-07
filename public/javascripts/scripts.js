@@ -72,6 +72,10 @@ function submitUploadForm(dom) {
 
 function submitEditForm(dom) {
   var data = {};
+  /*
+  alert('編集できるようにする予定！！');
+  return false;
+  */
   $('[name]', $(dom)).each(function(){
       data[$(this).attr('name')] = $(this).val();
   });

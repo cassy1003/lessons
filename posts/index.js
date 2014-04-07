@@ -21,14 +21,20 @@ exports.upload = function(req, res) {
 
 exports.edit = function(req, res) {
   var data = req.body;
-  mongodb.save('lesson', {
-    _id: data.id,
-    genre: data.genre,
-    instructor: data.instructor,
-    description: data.description || '',
-    date: data.date,
-    m_date: Date.now(),
+  mongodb.update('lesson', {
+    query: {_id: data.id},
+    update: {$set: {
+      //genre: 4
+      genre: data.genre,
+      instructor: data.instructor,
+      description: data.description || '',
+      date: data.date,
+      m_date: Date.now()
+    }},
+    multi: false,
+    upsert: true
   }).done(function(r) {
     res.redirect('/sekiya');
-  })
+  });
+  //res.redirect('/sekiya');
 }

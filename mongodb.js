@@ -86,22 +86,36 @@ exports.remove = function(col, query) {
 }
 
 exports.update = function(col, params) {
-  if (_DB[col] != null) {
-    var db = new _DB[col];
-    var query = params.query || {};
-    var update = params.update || {};
-    var upsert = params.upsert || false;
-    var multi = params.multi || true;
-    return db.update(query,
-      update,
-      {upsert: upsert, multi: multi},
-      function(err) {
-        return console.log(err);
-      }
-    );
-  }
-};
+  return $.Deferred(function(d) {
+    if (_DB[col] != null) {
+      var db = new _DB[col];
+      var query = params.query || {};
+      var update = params.update || {};
+      var upsert = params.upsert || false;
+      var multi = params.multi || true;
+      //db.update({"_id" : "5310ee0c2c4baf350ba93a2d"}, {$set: {uploader: 'cass'}}, {}, function(){console.log('ho')});
+      return db.update(query,
+        update,
+        {upsert: upsert, multi: multi},
+        function(err, numberAffected, raw) {
+          console.log(err);
+          console.log(numberAffected);
+          console.log(raw);
+          if (err) {
+            console.log(err);
+            return d.reject();
+          } else {
+            return d.resolve();
+          }
+        }
+      );
+    } else {
+      return d.reject();
+    }
+  });
+}
 
 exports.disconnect = function() {
+
   return mongoose.disconnect();
-};
+}
